@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hero-deploy
+  labels:
+    app: hero-app
+spec:
+  selector:
+    matchLabels:
+      app: hero-app
+  template:
+    metadata:
+      labels:
+        app: hero-app
+    spec:
+      containers:
+        - name: hero-app
+          image: hero-app:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 50051

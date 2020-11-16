@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hero-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: hero-app
+  ports:
+    - name: grpc-hero
+      port: 50051

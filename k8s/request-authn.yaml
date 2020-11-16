@@ -1,0 +1,16 @@
+apiVersion: security.istio.io/v1beta1
+kind: RequestAuthentication
+metadata:
+  name: hero-ra
+spec:
+  selector:
+    matchLabels:
+      app: hero-app
+  jwtRules:
+    - fromHeaders:
+        - name: 'authorization'
+          prefix: 'Bearer '
+      jwks_uri: https://to-be-patched
+      issuer: https://to-be-patched
+      outputPayloadToHeader: 'x-authorization'
+      forwardOriginalToken: true

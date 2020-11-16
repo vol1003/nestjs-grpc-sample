@@ -10,7 +10,7 @@ async function bootstrap() {
     AppModule, {
       transport: Transport.GRPC,
       options: {
-        url: 'localhost:5000',
+        url: '0.0.0.0:50051',
         package: HERO_PACKAGE_NAME,
         protoPath: 'hero.proto',
         loader: {

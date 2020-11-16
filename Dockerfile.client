@@ -1,0 +1,7 @@
+FROM networld/grpcurl
+
+WORKDIR /usr/src
+
+COPY src/protos ./protos
+
+CMD ["./grpcurl", "-plaintext", "-proto", "./protos/hero.proto", "-d", "{\"id\": 1}", "hero-svc:50051", "hero.HeroesService/FindOne"]

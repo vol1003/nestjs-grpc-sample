@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: hero-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        name: grpc-hero
+        # NOTE: there are restrictions on the ports available by the ingress controller
+        # See also gateways.istio-ingressgateway.ports
+        # https://istio.io/v1.4/docs/reference/config/installation-options/#gateways-options
+        number: 80
+        protocol: HTTP2
+      hosts:
+        - '*'

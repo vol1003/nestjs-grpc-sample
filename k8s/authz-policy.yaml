@@ -1,0 +1,12 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: hero-ap
+spec:
+  selector:
+    matchLabels:
+      app: hero-app
+  rules:
+    - from:
+        - source:
+            requestPrincipals: [ '*' ]

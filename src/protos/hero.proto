@@ -2,8 +2,11 @@ syntax = "proto3";
 
 package hero;
 
+import 'google/protobuf/empty.proto';
+
 service HeroesService {
   rpc FindOne (HeroById) returns (Hero) {}
+  rpc Metadatas (google.protobuf.Empty) returns (HeroMetadata) {}
 }
 
 message HeroById {
@@ -13,4 +16,8 @@ message HeroById {
 message Hero {
   int32 id = 1;
   string name = 2;
+}
+
+message HeroMetadata {
+  string metadata = 1;
 }
